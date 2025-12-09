@@ -469,4 +469,10 @@ If you find our work helpful, please cite the following paper:
   journal={arXiv preprint arXiv:2411.00820},
   year={2024}
 }
+@article{xu2025mobilerl,
+  title={MobileRL: Online Agentic Reinforcement Learning for Mobile GUI Agents},
+  author={Xu, Yifan and Liu, Xiao and Liu, Xinghan and Fu, Jiaqi and Zhang, Hanchen and Jing, Bohao and Zhang, Shudan and Wang, Yuting and Zhao, Wenyi and Dong, Yuxiao},
+  journal={arXiv preprint arXiv:2509.18119},
+  year={2025}
+}
 ```
