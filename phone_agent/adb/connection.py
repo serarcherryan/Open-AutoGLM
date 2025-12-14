@@ -76,6 +76,7 @@ class ADBConnection:
                 capture_output=True,
                 text=True,
                 timeout=timeout,
+                encoding='utf-8'
             )
 
             output = result.stdout + result.stderr
@@ -107,7 +108,7 @@ class ADBConnection:
             if address:
                 cmd.append(address)
 
-            result = subprocess.run(cmd, capture_output=True, text=True, timeout=5)
+            result = subprocess.run(cmd, capture_output=True, text=True, timeout=5, encoding='utf-8')
 
             output = result.stdout + result.stderr
             return True, output.strip() or "Disconnected"
@@ -128,6 +129,7 @@ class ADBConnection:
                 capture_output=True,
                 text=True,
                 timeout=5,
+                encoding='utf-8'
             )
 
             devices = []
@@ -239,7 +241,7 @@ class ADBConnection:
                 cmd.extend(["-s", device_id])
             cmd.extend(["tcpip", str(port)])
 
-            result = subprocess.run(cmd, capture_output=True, text=True, timeout=10)
+            result = subprocess.run(cmd, capture_output=True, text=True, timeout=10, encoding='utf-8')
 
             output = result.stdout + result.stderr
 

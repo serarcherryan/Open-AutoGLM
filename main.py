@@ -62,7 +62,7 @@ def check_system_requirements() -> bool:
         # Double check by running adb version
         try:
             result = subprocess.run(
-                ["adb", "version"], capture_output=True, text=True, timeout=10
+                ["adb", "version"], capture_output=True, text=True, timeout=10, encoding='utf-8'
             )
             if result.returncode == 0:
                 version_line = result.stdout.strip().split("\n")[0]
@@ -90,7 +90,7 @@ def check_system_requirements() -> bool:
     print("2. Checking connected devices...", end=" ")
     try:
         result = subprocess.run(
-            ["adb", "devices"], capture_output=True, text=True, timeout=10
+            ["adb", "devices"], capture_output=True, text=True, timeout=10, encoding='utf-8'
         )
         lines = result.stdout.strip().split("\n")
         # Filter out header and empty lines, look for 'device' status
@@ -126,10 +126,7 @@ def check_system_requirements() -> bool:
     print("3. Checking ADB Keyboard...", end=" ")
     try:
         result = subprocess.run(
-            ["adb", "shell", "ime", "list", "-s"],
-            capture_output=True,
-            text=True,
-            timeout=10,
+            ["adb", "shell", "ime", "list", "-s"], capture_output=True, text=True, timeout=10, encoding='utf-8'
         )
         ime_list = result.stdout.strip()
 
